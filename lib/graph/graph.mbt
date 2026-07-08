@@ -11,7 +11,7 @@ pub(all) suberror GraphError {
 pub(all) struct Edge {
   u : Int
   v : Int
-  weight : Double
+  mut weight : Double
 } derive(Eq, Debug, ToJson)
 
 ///|

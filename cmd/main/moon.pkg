@@ -1,0 +1,8 @@
+import {
+  "moongraphlearn/moongraphlearn/lib/demo",
+  "moongraphlearn/moongraphlearn/lib/preprocess",
+}
+
+options(
+  is_main: true,
+)
