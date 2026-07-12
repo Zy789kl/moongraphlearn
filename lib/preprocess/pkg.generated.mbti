@@ -1,0 +1,52 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moongraphlearn/moongraphlearn/lib/preprocess"
+
+import {
+  "moonbitlang/core/debug",
+  "moongraphlearn/moongraphlearn/lib/graph",
+}
+
+// Values
+pub fn add_self_loops(@graph.Graph, weight? : Double) -> @graph.Graph
+
+pub fn average_degree(@graph.Graph) -> Double
+
+pub fn clustering_coefficient(@graph.Graph, Int) -> Double
+
+pub fn connected_components(@graph.Graph) -> Array[Array[Int]]
+
+pub fn degree_vector(@graph.Graph) -> Array[Double]
+
+pub fn density(@graph.Graph) -> Double
+
+pub fn induce_subgraph(@graph.Graph, Array[Int]) -> @graph.Graph
+
+pub fn k_hop_subgraph(@graph.Graph, Int, Int) -> (@graph.Graph, Array[Int])
+
+pub fn symmetric_normalized_graph(@graph.Graph, with_self_loops? : Bool) -> @graph.Graph
+
+pub fn symmetric_normalized_weights(@graph.Graph, with_self_loops? : Bool) -> Map[Int, Array[@graph.Edge]]
+
+pub fn train_val_test_split_edges(@graph.Graph, train_ratio? : Double, val_ratio? : Double, seed? : Int) -> EdgeSplit
+
+pub fn train_val_test_split_nodes(Int, train_ratio? : Double, val_ratio? : Double, seed? : Int) -> NodeSplit
+
+// Errors
+
+// Types and methods
+pub(all) struct EdgeSplit {
+  train_edges : Array[@graph.Edge]
+  val_edges : Array[@graph.Edge]
+  test_edges : Array[@graph.Edge]
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct NodeSplit {
+  train_mask : Array[Bool]
+  val_mask : Array[Bool]
+  test_mask : Array[Bool]
+} derive(Eq, ToJson, @debug.Debug)
+
+// Type aliases
+
+// Traits
+

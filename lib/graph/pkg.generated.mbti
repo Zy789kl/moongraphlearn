@@ -1,0 +1,68 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moongraphlearn/moongraphlearn/lib/graph"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+pub(all) suberror GraphError {
+  InvalidNodeId(Int)
+  InvalidEdge(Int, Int)
+  FeatureDimensionMismatch(expected~ : Int, actual~ : Int)
+} derive(Eq, ToJson, @debug.Debug)
+
+// Types and methods
+pub(all) struct Edge {
+  u : Int
+  v : Int
+  mut weight : Double
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct Graph {
+  directed : Bool
+  mut num_nodes : Int
+  adj : Map[Int, Array[Edge]]
+  in_adj : Map[Int, Array[Edge]]
+} derive(@debug.Debug)
+pub fn Graph::add_edge(Self, Int, Int, weight? : Double) -> Unit
+pub fn Graph::add_node(Self, Int) -> Unit
+pub fn Graph::clone(Self) -> Self
+pub fn Graph::degree(Self, Int) -> Int
+pub fn Graph::edge_count(Self) -> Int
+pub fn Graph::edge_weight(Self, Int, Int) -> Double?
+pub fn Graph::edges(Self) -> Array[Edge]
+pub fn Graph::from_adjacency_matrix(Array[Array[Double]], directed? : Bool) -> Self
+pub fn Graph::from_edge_list(Array[(Int, Int)], directed? : Bool) -> Self
+pub fn Graph::from_weighted_edge_list(Array[(Int, Int, Double)], directed? : Bool) -> Self
+pub fn Graph::has_edge(Self, Int, Int) -> Bool
+pub fn Graph::in_degree(Self, Int) -> Int
+pub fn Graph::in_neighbor_edges(Self, Int) -> Array[Edge]
+pub fn Graph::in_neighbors(Self, Int) -> Array[Int]
+pub fn Graph::neighbor_edges(Self, Int) -> Array[Edge]
+pub fn Graph::neighbors(Self, Int) -> Array[Int]
+pub fn Graph::new(directed? : Bool) -> Self
+pub fn Graph::node_count(Self) -> Int
+pub fn Graph::nodes(Self) -> Array[Int]
+pub fn Graph::to_adjacency_matrix(Self) -> Array[Array[Double]]
+
+pub(all) struct NodeFeatures {
+  data : Array[Array[Double]]
+  num_nodes : Int
+  feature_dim : Int
+} derive(@debug.Debug)
+pub fn NodeFeatures::clone(Self) -> Self
+pub fn NodeFeatures::from_arrays(Array[Array[Double]]) -> Self
+pub fn NodeFeatures::get(Self, Int) -> Array[Double]
+pub fn NodeFeatures::l2_normalize(Self) -> Self
+pub fn NodeFeatures::min_max_normalize(Self) -> Self
+pub fn NodeFeatures::set(Self, Int, Array[Double]) -> Unit raise GraphError
+pub fn NodeFeatures::zeros(Int, Int) -> Self
+pub fn NodeFeatures::zscore_normalize(Self) -> Self
+
+// Type aliases
+
+// Traits
+

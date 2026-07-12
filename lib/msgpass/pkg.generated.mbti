@@ -1,0 +1,56 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moongraphlearn/moongraphlearn/lib/msgpass"
+
+import {
+  "moonbitlang/core/debug",
+  "moongraphlearn/moongraphlearn/lib/graph",
+}
+
+// Values
+pub fn aggregate_neighbors(@graph.Graph, @graph.NodeFeatures, Aggregator, edge_weights? : Bool) -> @graph.NodeFeatures
+
+pub fn apply_activation(@graph.NodeFeatures, (Double) -> Double) -> @graph.NodeFeatures
+
+pub fn label_propagation(@graph.Graph, @graph.NodeFeatures, Array[Bool], alpha? : Double, max_iter? : Int, tol? : Double) -> @graph.NodeFeatures
+
+pub fn linear_transform(@graph.NodeFeatures, Array[Array[Double]], Array[Double]) -> @graph.NodeFeatures
+
+pub fn propagate(@graph.Graph, @graph.NodeFeatures, Aggregator, edge_weights? : Bool) -> @graph.NodeFeatures
+
+pub fn relu(Double) -> Double
+
+pub fn sigmoid(Double) -> Double
+
+// Errors
+
+// Types and methods
+pub(all) enum Aggregator {
+  Sum
+  Mean
+  Max
+} derive(Eq, ToJson, @debug.Debug)
+
+pub(all) struct GCNConv {
+  in_dim : Int
+  out_dim : Int
+  weight : Array[Array[Double]]
+  bias : Array[Double]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn GCNConv::forward(Self, @graph.Graph, @graph.NodeFeatures, add_self_loops? : Bool) -> @graph.NodeFeatures raise @graph.GraphError
+pub fn GCNConv::init(Int, Int, seed? : Int) -> Self
+
+pub(all) struct GraphSAGEConv {
+  in_dim : Int
+  out_dim : Int
+  aggregator : Aggregator
+  weight_self : Array[Array[Double]]
+  weight_neigh : Array[Array[Double]]
+  bias : Array[Double]
+} derive(Eq, ToJson, @debug.Debug)
+pub fn GraphSAGEConv::forward(Self, @graph.Graph, @graph.NodeFeatures) -> @graph.NodeFeatures raise @graph.GraphError
+pub fn GraphSAGEConv::init(Int, Int, aggregator? : Aggregator, seed? : Int) -> Self
+
+// Type aliases
+
+// Traits
+

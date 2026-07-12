@@ -1,0 +1,29 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moongraphlearn/moongraphlearn/lib/demo"
+
+import {
+  "moonbitlang/core/debug",
+  "moongraphlearn/moongraphlearn/lib/graph",
+}
+
+// Values
+pub fn karate_club_graph() -> (@graph.Graph, Array[Int])
+
+pub fn random_block_model(Int, Int, p_in? : Double, p_out? : Double, seed? : Int) -> (@graph.Graph, Array[Int])
+
+pub fn run_node_classification_pipeline(@graph.Graph, Array[Int], Int, alpha? : Double, max_iter? : Int) -> PipelineResult
+
+// Errors
+
+// Types and methods
+pub(all) struct PipelineResult {
+  train_acc : Double
+  val_acc : Double
+  test_acc : Double
+  preds : Array[Int]
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+

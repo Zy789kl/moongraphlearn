@@ -4,7 +4,7 @@ version = "0.1.0"
 
 readme = "README.mbt.md"
 
-repository = "https://github.com/moongraphlearn/moongraphlearn"
+repository = "https://github.com/Zy789kl/moongraphlearn"
 
 license = "Apache-2.0"
 

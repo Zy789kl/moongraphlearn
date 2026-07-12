@@ -1,0 +1,35 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "moongraphlearn/moongraphlearn/lib/sampling"
+
+import {
+  "moonbitlang/core/debug",
+  "moongraphlearn/moongraphlearn/lib/graph",
+}
+
+// Values
+pub fn graphsage_multi_layer_sample(@graph.Graph, Array[Int], Array[Int], replacement? : Bool, seed? : Int) -> MultiLayerNeighborhood
+
+pub fn node2vec_walk(@graph.Graph, Int, Int, p? : Double, q? : Double, seed? : Int) -> Array[Int]
+
+pub fn random_walk(@graph.Graph, Int, Int, seed? : Int) -> Array[Int]
+
+pub fn sample_negative_edges(@graph.Graph, Int, seed? : Int) -> Array[(Int, Int)]
+
+pub fn sample_neighborhood_batch(@graph.Graph, Array[Int], Int, replacement? : Bool, seed? : Int) -> Map[Int, Array[Int]]
+
+pub fn simulate_walks(@graph.Graph, Int, Int, p? : Double, q? : Double, seed? : Int) -> Array[Array[Int]]
+
+pub fn uniform_sample_neighbors(@graph.Graph, Int, Int, replacement? : Bool, seed? : Int) -> Array[Int]
+
+// Errors
+
+// Types and methods
+pub(all) struct MultiLayerNeighborhood {
+  layer_nodes : Array[Array[Int]]
+  layer_adjs : Array[Map[Int, Array[Int]]]
+} derive(@debug.Debug)
+
+// Type aliases
+
+// Traits
+
